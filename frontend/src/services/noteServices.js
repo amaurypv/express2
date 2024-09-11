@@ -3,7 +3,7 @@ en app.jsx
 por lo que se tiene que importar la libreria axios*/
 import axios from 'axios'
 //se define la base de la direccion del servidor
-const baseURL='https://render2-iucj.onrender.com/api/notes'
+const baseURL='/api/notes'
 
 //se va a definir el request get mediante axios
 const getAll=()=>{

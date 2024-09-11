@@ -9,8 +9,24 @@ en el archivo index del backend se tiene que agregar un middleware
 
 al momento de hacer el primer deploy no se ejecutara la parte de las notas porque 
 el baseUrel se tiene que modificar con la direccion de las notas que nos de render
-esta se obtiene despues de hacer el primer deploy una vez obtenida la direccion de las notas
-se copia y se pega en la baseUrl del frontend.
+por lo que se tiene que hacer un cambio en el archivo vite.config.js
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      }
+    }
+  }
+})
+
+siempre y cuando la baseUrl sea igual a 
+  const baseURL='/api/notes'
+
+
 luego en la pagina de render
     new
         web service
